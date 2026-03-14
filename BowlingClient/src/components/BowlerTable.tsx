@@ -1,5 +1,7 @@
+// import react hooks
 import { useEffect, useState } from "react"
 
+//define the bowler type for the typescript
 type Bowler = {
   bowlerId: number
   bowlerFirstName: string
@@ -13,15 +15,18 @@ type Bowler = {
   bowlerPhoneNumber: string
 }
 
+//react component that displays a table of bowlers
 function BowlerTable() {
   const [bowlers, setBowlers] = useState<Bowler[]>([])
 
+  // state to store the list of bowlers
   useEffect(() => {
     fetch("http://localhost:5055/bowlers")
       .then((response) => response.json())
       .then((data) => setBowlers(data))
   }, [])
 
+  //render data inside a table
   return (
     <table>
       <thead>
@@ -55,4 +60,5 @@ function BowlerTable() {
   )
 }
 
+//export the component so it can be used in other files
 export default BowlerTable

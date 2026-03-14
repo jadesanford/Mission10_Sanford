@@ -1,3 +1,4 @@
+//displays the page heading and description
 function Heading() {
     return (
       <header>
@@ -8,4 +9,5 @@ function Heading() {
     )
   }
   
+  //export the component so it can be used in other files
   export default Heading
